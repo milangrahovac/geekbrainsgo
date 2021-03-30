@@ -120,5 +120,4 @@ func main() {
 	// task 3
 	fmt.Println("task 3")
 	getNumber()
-	kds
 }
