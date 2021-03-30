@@ -46,10 +46,6 @@ func CirclePerimetar(r float64) (float64, error) {
 	return 2 * float64(r) * math.Pi, nil
 }
 
-func CircleArea(r float64) (float64, error) {
-	return math.Pow(float64(r), 2) * math.Pi, nil
-}
-
 func hundredsTensUnits(num int64) (string, error) {
 	fmt.Printf("Your number is: %d \n", num)
 
