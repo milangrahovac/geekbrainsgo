@@ -61,7 +61,6 @@ func calc(x float64, y float64, op string) (float64, error) {
 			result = x / y
 		}
 	}
-	fmt.Printf("%g %s %g = %g \n", x, op, y, result)
 	return result, nil
 }
 
@@ -124,7 +123,12 @@ func main() {
 	var op, _ = getOperator()
 	var v2 = getNumber("y")
 
-	calc(v1, v2, op)
+	res, calc_err := calc(v1, v2, op)
+	if calc_err != nil {
+		fmt.Println("Error: check the input")
+	} else {
+		fmt.Printf("%g %s %g = %g \n", v1, op, v2, res)
+	}
 	fmt.Println("")
 
 	// task 2
