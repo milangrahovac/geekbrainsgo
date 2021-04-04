@@ -123,8 +123,8 @@ func main() {
 	var op, _ = getOperator()
 	var v2 = getNumber("y")
 
-	res, calc_err := calc(v1, v2, op)
-	if calc_err != nil {
+	res, calcErr := calc(v1, v2, op)
+	if calcErr != nil {
 		fmt.Println("Error: check the input")
 	} else {
 		fmt.Printf("%g %s %g = %g \n", v1, op, v2, res)
@@ -134,8 +134,10 @@ func main() {
 	// task 2
 	fmt.Println("Task 2")
 	fmt.Println("Get list of prime numbers from 0 till n")
-	var primeNum, err = getPrimeNum()
-	if err == nil {
+	var primeNum, primeErr = getPrimeNum()
+	if primeErr != nil {
+		fmt.Println("Error: check the input")
+	} else {
 		var primes = getListOfPrimeNumers(primeNum)
 		fmt.Printf("List of all prime numbers from 0 till %d \n", primeNum)
 		fmt.Println(primes)
