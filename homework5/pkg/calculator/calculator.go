@@ -29,7 +29,11 @@ func (n *Numbers) Multiplication() float64 {
 
 // Division calculates x/y
 func (n *Numbers) Division() float64 {
-	return n.X / n.Y
+	if n.Y == 0 {
+		return math.Inf(int(n.X))
+	} else {
+		return n.X / n.Y
+	}
 }
 
 // run math add, sub, mult, div function depends of operator and return result of operation float64
@@ -43,11 +47,7 @@ func (n *Numbers) Calc(op string) (float64, string) {
 	case "*":
 		result = n.Multiplication()
 	case "/":
-		if n.Y == 0 {
-			result = math.Inf(int(n.X))
-		} else {
-			result = n.Division()
-		}
+		result = n.Division()
 	}
 	str := fmt.Sprintf("%g %s %g = %g \n", n.X, op, n.Y, result)
 	return result, str
