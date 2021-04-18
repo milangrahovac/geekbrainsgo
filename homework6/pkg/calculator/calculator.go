@@ -11,19 +11,19 @@ type Numbers struct {
 	Operator string
 }
 
-func (n *Numbers) Addition() float64 {
+func (n *Numbers) Add() float64 {
 	return n.X + n.Y
 }
 
-func (n *Numbers) Subtraction() float64 {
+func (n *Numbers) Subtract() float64 {
 	return n.X - n.Y
 }
 
-func (n *Numbers) Multiplication() float64 {
+func (n *Numbers) Multiply() float64 {
 	return n.X * n.Y
 }
 
-func (n *Numbers) Division() float64 {
+func (n *Numbers) Divide() float64 {
 	if n.Y == 0 {
 		return math.Inf(int(n.X))
 	} else {
@@ -35,13 +35,13 @@ func (n *Numbers) Calc() (float64, string) {
 	var result float64
 	switch n.Operator {
 	case "+":
-		result = n.Addition()
+		result = n.Add()
 	case "-":
-		result = n.Subtraction()
+		result = n.Subtract()
 	case "*":
-		result = n.Multiplication()
+		result = n.Multiply()
 	case "/":
-		result = n.Division()
+		result = n.Divide()
 	}
 	str := fmt.Sprintf("%g %s %g = %g \n", n.X, n.Operator, n.Y, result)
 	return result, str
